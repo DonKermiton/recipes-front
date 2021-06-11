@@ -1,0 +1,37 @@
+<div class="d-flex justify-content-center mt-5 w-100 align-items-center">
+  <div class="col-3">
+    <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
+      <div class="mb-3">
+        <label for="firstName" class="form-label">Imię</label>
+        <input type="text"
+               class="form-control"
+               id="firstName"
+               [formControlName]="registerEnum.FIRSTNAME"
+        >
+      </div>
+      <div class="mb-3">
+        <label for="secondName" class="form-label">Nazwisko</label>
+        <input type="text"
+               class="form-control"
+               id="secondName"
+               [formControlName]="registerEnum.LASTNAME"
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"   [formControlName]="registerEnum.EMAIL">
+        <div id="emailHelp" class="form-text" *ngIf="controlHaveErrors(registerEnum.EMAIL)">Email jest wymagany</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" [formControlName]="registerEnum.PASSWORD">
+        <div id="passwordHelp" class="form-text" *ngIf="controlHaveErrors(registerEnum.PASSWORD)" >Hasło jest wymagane</div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+</div>
